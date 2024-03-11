@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['first_name', 'last_name', 'email'];
+    protected $fillable = ['username','first_name', 'last_name', 'email'];
 
     public function getFullNameAttribute()
     {

@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Student;
 use App\Http\Controllers\StudentController;
 
 /*
@@ -24,7 +25,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return Inertia::render('Student/Index',
+    [
+        'students' => Student::all()
+    ]);
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('students', StudentController::class)->middleware(['auth', 'verified']);

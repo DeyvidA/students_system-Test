@@ -19,7 +19,7 @@ defineProps({
     <button
         :type="type"
         :disabled="disabled"
-        :class="`w-full rounded-md py-2 px-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50`"
+        :class="`w-full rounded-md py-2 px-4 text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50 `"
         @click="onClick"
     >
         <slot />

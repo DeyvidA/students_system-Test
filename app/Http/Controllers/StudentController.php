@@ -17,4 +17,47 @@ class StudentController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return Inertia::render('Student/Create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        Student::create($request->all());
+        return redirect()->route('dashboard');
+    }
+
+    public function edit(Student $student)
+    {
+        return Inertia::render('Student/Edit', [
+            'student' => $student
+        ]);
+    }
+
+    public function update(Request $request, Student $student)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'username' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $student->update($request->all());
+        return redirect()->route('dashboard');
+    }
+
+    public function destroy(Student $student)
+    {
+        $student->delete();
+        return redirect()->route('dashboard');
+    }
 }
